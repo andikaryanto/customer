@@ -1,18 +1,6 @@
 # Backend Developer Technical Assessment Solution
 
-This project implements the required pipeline:
-
-- Flask mock server on port `5000`
-- FastAPI pipeline service on port `8000`
-- PostgreSQL database on port `5432`
-
-Flow: `Flask JSON -> FastAPI ingest -> PostgreSQL -> API response`
-
-## Project Structure
-
-- `docker-compose.yml`
-- `mock-server/`
-- `pipeline-service/`
+Flow: `Flask JSON -> FastAPI ingest -> PostgreSQL`
 
 ## Run
 
@@ -53,4 +41,3 @@ curl http://localhost:8000/api/customers/CUST-0001
 - Customer source data is loaded from `mock-server/data/customers.json` (25 records).
 - Ingestion fetches all pages from Flask automatically.
 - Upsert is implemented with PostgreSQL `ON CONFLICT` on `customer_id`.
-- `dlt` is used in the ingestion flow with PostgreSQL destination.
